@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-require("dotenv").config({});
+require("dotenv").config();
 const connectDB = require("./database/db");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
@@ -9,6 +9,7 @@ const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 
 //route paths
+// app.use("/api/products", require("./routes/productRoutes"));
 
 // Call the connectDB function to connect to the database
 connectDB();
@@ -36,7 +37,7 @@ app.get("/", (req, res) => {
 
 //Routes middleware
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
